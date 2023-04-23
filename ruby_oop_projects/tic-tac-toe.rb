@@ -55,8 +55,8 @@ class Player
 end
 
 def playGame
-    puts "Tick-Tack-Toe"
-    print "What is the name of player #1>> "
+    puts "\e[1;4;35m Tick-Tack-Toe\e[0m"
+    print "\nWhat is the name of player #1>> "
     name = gets.chomp
     player_1 = Player.new(name, "X") # player1 will use X
     print "\nWhat is the name of player #2>> "
@@ -68,7 +68,7 @@ def playGame
         print "\n#{player_1.name}, please choose a valid number>> "
         choosen_number = gets.chomp.to_i
         while(!aGame.valid_turn?(choosen_number, player_1.letter))
-            puts "Sorry, this number is invalid"
+            puts "\e[1;31m Sorry, this number is invalid \e[0m"
             print "\n#{player_1.name}, please choose a valid number>> "
             choosen_number = gets.chomp.to_i
         end
@@ -77,7 +77,7 @@ def playGame
         print "\n#{player_2.name}, please choose a valid number>> "
         choosen_number = gets.chomp.to_i
         while(!aGame.valid_turn?(choosen_number, player_2.letter))
-            puts "Sorry, this number is invalid"
+            puts "\033[1;31m Sorry, this number is invalid \033[0m"
             print "\n#{player_2.name}, please choose a valid number>> "
             choosen_number = gets.chomp.to_i
         end
@@ -89,11 +89,11 @@ def playGame
 
     # Print the result of the game
     if aGame.has_won?(player_1.letter) 
-        puts "Match end. #{player_1.name} is the winner"
+        puts "\e[;32m Match end. #{player_1.name} is the winner\033[0m"
     elsif aGame.has_won?(player_2.letter)
-        puts "Match end. #{player_2.name} is the winner"
+        puts "\e[;34m Match end. #{player_2.name} is the winner\033[0m"
     else
-        puts "Match end. DRAW"
+        puts "\e[;33m Match end. DRAW\033[0m"
     end
 end
 
