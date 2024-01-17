@@ -17,6 +17,6 @@ def caesar_cipher(str, shift)
             secret << code.chr
         end
     end
-    secret.delete(" \t\r\n")
+    secret
 end
 p caesar_cipher("What a string!", 5)
